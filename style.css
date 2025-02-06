@@ -40,3 +40,28 @@
     display: block;
 }
 
+
+.hello1{
+    position: absolute;
+    /* display: none; */
+    padding: 20%;
+    color:white;
+    
+}
+
+.hello2{
+    height: 500px;
+    width: 500px;
+    margin-left: 470px;
+    opacity: 0.8;
+    border-radius: 20px;
+    display: none;
+}
+
+
+.but{
+    margin-top: 80%;
+    margin-left: 40%;
+    padding-right: 30px;
+    padding-left: 30px;
+}

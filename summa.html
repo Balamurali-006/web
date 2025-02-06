@@ -3,39 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hover to Show Block</title>
-    <style>
-        .hover-text {
-            font-size: 20px;
-            cursor: pointer;
-            color: blue;
-            position: absolute;
-        }
-
-        .hidden-block {
-            display: none;
-            background-color: lightgray;
-            padding: 10px;
-            margin-top: 5px;
-            width: 200px;
-            border: 1px solid black;
-        }
-
-        /* Show block on hover */
-        .hover-text:hover + .hidden-block {
-            display: block;
-        }
-    </style>
+    <title>Document</title>
 </head>
 <body>
-
-    <span class="hover-text">Hover over me</span>
-    <div class="hidden-block">This is a hidden block that appears on hover!</div>
-    <div class="hello">hello world</div>
-    
-    <div style="height: 200px; background-color: black; opacity: 0.8; width: 350px; position:absolute; display: block;">
-
-    </div>
-
+    <button id="register-btn" >Registration</button>
+    <h1 id="regID">Your Registration ID:</h1>
 </body>
 </html>
+
+<script>
+
+function generateRegistrationID() {
+    return 'USER-' + Math.floor(100000 + Math.random() * 900000);
+  }
+  
+  document.getElementById("register-btn").addEventListener("click", function() {
+    let regID = generateRegistrationID();
+    document.getElementById("regID").textContent = "Your Registration ID: " + regID;
+  });
+  
+</script>
+  

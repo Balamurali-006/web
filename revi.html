@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Movie Ratings Table</h2>
+
+    <table id="movieTable" border="11" style="margin: 20px;">
+      <thead>
+        <tr>
+          <th style="padding-right: 100px; padding-left: 100px; padding-top: 20px; padding-bottom: 20px;">Movie Name</th>
+          <th style="padding-right: 100px; padding-left: 100px; padding-top: 20px; padding-bottom: 20px;">Rating (out of 5)</th>
+          <th style="padding-right: 100px; padding-left: 100px; padding-top: 20px; padding-bottom: 20px;">User Review</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding-right: 100px; padding-left: 100px; padding-top: 20px; padding-bottom: 20px;">Inception</td>
+          <td style="padding-right: 100px; padding-left: 100px; padding-top: 20px; padding-bottom: 20px;">4.8</td>
+          <td style="padding-right: 100px; padding-left: 100px; padding-top: 20px; padding-bottom: 20px;">Mind-blowing!</td>
+        </tr>
+        <tr>
+          <td style="padding-right: 100px; padding-left: 100px; padding-top: 20px; padding-bottom: 20px;">Interstellar</td>
+          <td style="padding-right: 100px; padding-left: 100px; padding-top: 20px; padding-bottom: 20px;">4.9</td>
+          <td style="padding-right: 100px; padding-left: 100px; padding-top: 20px; padding-bottom: 20px;">Amazing visuals!</td>
+        </tr>
+      </tbody>
+    </table>
+  
+
+  <h3>Add a New Movie</h3>
+  <input type="text" id="movieName" placeholder="Enter movie name">
+  <input type="number" id="movieRating" placeholder="Rating (1-5)" min="1" max="5">
+  <input type="text" id="movieReview" placeholder="Enter your review">
+  <button onclick="addMovie()">Add Movie</button>
+</body>
+<script>
+    function addMovie() {
+      var name = document.getElementById('movieName').value;
+      var rating = document.getElementById('movieRating').value;
+      var review = document.getElementById('movieReview').value;
+  
+      if (name === "" || rating === "" || review === "") {
+        alert("Please fill in all fields.");
+        return;
+      }
+  
+      var table = document.getElementById('movieTable').getElementsByTagName('tbody')[0];
+  
+      // Clone the first row to maintain styling
+      var referenceRow = table.rows[0].cloneNode(true);
+  
+      // Update values of cloned row
+      referenceRow.cells[0].innerText = name;
+      referenceRow.cells[1].innerText = rating;
+      referenceRow.cells[2].innerText = review;
+  
+      table.appendChild(referenceRow);
+  
+      // Clear input fields
+      document.getElementById('movieName').value = "";
+      document.getElementById('movieRating').value = "";
+      document.getElementById('movieReview').value = "";
+    }
+  </script>
+  
+</html>

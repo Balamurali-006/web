@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -11,11 +12,11 @@
     <div >
         <img src="/prime.jpg" style="height: 100px; margin-top: 20px; margin-left: 42%;">
     </div>
-    <div class="border border-2 border-black rounded" style="height: 400px; width: 400px;margin-left: 35%;">
+    <div class="border border-2 border-black rounded" style="height: 400px; width: 400px;margin-left: 35%; position: absolute;">
         <h2 class="px-4 pt-4">Sign-in</h2>
         <p class="ps-4 pt-2" style="font-weight: bold;">E-mail or Mobile phone Number</p>
         <input class="ps-2 ms-4 rounded" style="width: 350px;" type="text">
-        <button class="mx-4 my-3"  style="width: 350px; background-color: rgb(213, 213, 9);border-radius: 25px 25px  25px 25px;">Continue</button>
+        <button class="mx-4 my-3" onclick="dis()" id="register-btn" style="width: 350px; background-color: rgb(213, 213, 9);border-radius: 25px 25px  25px 25px;">Continue</button>
         <p style="font-size: 12px;" class="mx-4">By continuing, you agree to the Amazon <a href="https://www.amazon.com/conditions-of-use">Conditions of Use </a> and <a href="https://www.amazon.com/privacy-notice" >Privacy Notice.</a></p>
         <div class="dropdown">
             <button class="btn dropdown-toggle mx-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,6 +27,42 @@
             </ul>
         </div>
     </div>
+   
+
+    <div style="background-color: black; position: absolute;" class="hello2">
+        <h2 id="regID" class="hello1">Your Registration ID:</h2>
+        <button onclick="app()" class="but">
+            close
+        </button>
+    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    function generateRegistrationID() {
+    return 'USER-' + Math.floor(100000 + Math.random() * 900000);
+  }
+//   var b = document.getElementsByClassName('hello1')
+//   var c = document.getElementsByClassName('hello2')
+var c = document.querySelector('.hello2');
+  function dis() {
+    // Select first element with class hello2
+      if (c.style.display === 'none' || c.style.display === '') {
+        c.style.display = 'block';
+        b.style.display = 'block'
+      } else {
+        c.style.display = 'none';
+      }
+    }
+  function app(){
+        c.style.display='none';
+
+  }
+  
+  document.getElementById("register-btn").addEventListener("click", function() {
+    let regID = generateRegistrationID();
+    document.getElementById("regID").textContent = "Your Registration ID: " + regID;
+  });
+  
+</script>
+  
 </html>
